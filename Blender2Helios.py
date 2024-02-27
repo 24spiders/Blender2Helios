@@ -261,7 +261,7 @@ class Blender2HeliosHelper():
 
     def exportSelectedObject(self, file):
         export_materials = self.useMaterials and not self.useOwnMaterials
-        bpy.ops.export_scene.obj(filepath=self.checkDirExists(file), check_existing=False, use_mesh_modifiers=True, use_selection=True, use_normals=False, use_materials=export_materials, use_uvs=False, axis_forward='Y', axis_up='Z')
+        bpy.ops.wm.obj_export(filepath=self.checkDirExists(file), check_existing=False, apply_modifiers=True, export_selected_objects=True, export_normals=False, export_materials=export_materials, export_uv=False, forward_axis='Y', up_axis='Z')
 
     def selectOneObject(self, object):
         bpy.ops.object.select_all(action='DESELECT')
